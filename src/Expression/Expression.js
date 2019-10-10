@@ -3,6 +3,9 @@ class Expression {
     if(this.print === undefined){
       throw new TypeError("Must implement print method")
     }
+    if(new.target === Expression){
+      throw new SyntaxError("You can't implement variables of Expression")
+    }
   }
 
   eval() {}

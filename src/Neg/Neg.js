@@ -1,4 +1,4 @@
-const Expression = require("./Expression")
+const Expression = require("../Expression/Expression")
 
 class Neg extends Expression {
   constructor(expression){

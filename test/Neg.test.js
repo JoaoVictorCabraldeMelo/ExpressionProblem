@@ -1,4 +1,4 @@
-const Neg =require('../Neg')
+const Neg =require('../src/Neg/Neg')
 
 describe('Main section of Negative numbers', () => {
   test('should evaluate the negative number', () => {
