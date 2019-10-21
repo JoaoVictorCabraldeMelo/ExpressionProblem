@@ -1,15 +1,15 @@
 const Expression = require('../Expression/Expression')
-const Number = require('../Literal/Literal') 
-
+const typecheck = require('../Mixins/Typecheck')
 class Add extends Expression {
   constructor(expLeft, expRight){
     super()
     this.expLeft = expLeft
     this.expRight = expRight
+    Object.assign(Add.prototype, typecheck)
   }
 
   print() {
-    this.typecheck()
+    this.typechecking()
     if(typeof this.expRight === "number" && typeof this.expLeft === "number"){
       return(`${this.expLeft}+${this.expRight}`)
     } else {
@@ -18,7 +18,7 @@ class Add extends Expression {
   }
 
   eval() {
-    this.typecheck()
+    this.typechecking()
     if(typeof this.expRight === "number" && typeof this.expLeft === "number"){
       return(this.expLeft +  this.expRight)
     } else {
@@ -26,13 +26,7 @@ class Add extends Expression {
     }
   }
 
-  typecheck(){
-    if((typeof this.expRight.eval() !== "number"  
-      || typeof this.expLeft.eval() !== "number") && (typeof expRight !== "number" 
-      ||typeof this.expLeft !== "number")){
-      throw TypeError("Trying to add variables that are not Numbers")
-    }
-  }
+
   
 }
 
